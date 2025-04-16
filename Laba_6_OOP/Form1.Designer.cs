@@ -1,4 +1,4 @@
-﻿namespace Laba_4_1_OOP
+﻿namespace Laba_6_OOP
 {
     partial class Form1
     {
@@ -44,8 +44,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(0, -2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(950, 480);
+            this.pictureBox1.Size = new System.Drawing.Size(1267, 591);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
@@ -55,26 +56,29 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(663, 26);
+            this.label1.Location = new System.Drawing.Point(884, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(44, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(719, 26);
+            this.label2.Location = new System.Drawing.Point(959, 32);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(44, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "label2";
             // 
             // Button_Circle
             // 
-            this.Button_Circle.Location = new System.Drawing.Point(29, 26);
+            this.Button_Circle.Location = new System.Drawing.Point(39, 32);
+            this.Button_Circle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Button_Circle.Name = "Button_Circle";
-            this.Button_Circle.Size = new System.Drawing.Size(85, 23);
+            this.Button_Circle.Size = new System.Drawing.Size(113, 28);
             this.Button_Circle.TabIndex = 5;
             this.Button_Circle.Text = "Круг";
             this.Button_Circle.UseVisualStyleBackColor = true;
@@ -82,9 +86,10 @@
             // 
             // Button_Square
             // 
-            this.Button_Square.Location = new System.Drawing.Point(120, 26);
+            this.Button_Square.Location = new System.Drawing.Point(160, 32);
+            this.Button_Square.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Button_Square.Name = "Button_Square";
-            this.Button_Square.Size = new System.Drawing.Size(89, 23);
+            this.Button_Square.Size = new System.Drawing.Size(119, 28);
             this.Button_Square.TabIndex = 6;
             this.Button_Square.Text = "Квадрат";
             this.Button_Square.UseVisualStyleBackColor = true;
@@ -92,9 +97,10 @@
             // 
             // Button_Rectangular
             // 
-            this.Button_Rectangular.Location = new System.Drawing.Point(215, 26);
+            this.Button_Rectangular.Location = new System.Drawing.Point(287, 32);
+            this.Button_Rectangular.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Button_Rectangular.Name = "Button_Rectangular";
-            this.Button_Rectangular.Size = new System.Drawing.Size(89, 23);
+            this.Button_Rectangular.Size = new System.Drawing.Size(119, 28);
             this.Button_Rectangular.TabIndex = 7;
             this.Button_Rectangular.Text = "Треугольник";
             this.Button_Rectangular.UseVisualStyleBackColor = true;
@@ -102,9 +108,10 @@
             // 
             // change_color_button
             // 
-            this.change_color_button.Location = new System.Drawing.Point(373, 12);
+            this.change_color_button.Location = new System.Drawing.Point(497, 15);
+            this.change_color_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.change_color_button.Name = "change_color_button";
-            this.change_color_button.Size = new System.Drawing.Size(95, 54);
+            this.change_color_button.Size = new System.Drawing.Size(127, 66);
             this.change_color_button.TabIndex = 8;
             this.change_color_button.Text = "Изменить цвет объекта";
             this.change_color_button.UseVisualStyleBackColor = true;
@@ -113,25 +120,27 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(485, 26);
+            this.label3.Location = new System.Drawing.Point(647, 32);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 13);
+            this.label3.Size = new System.Drawing.Size(182, 16);
             this.label3.TabIndex = 9;
             this.label3.Text = "Изменить размер объекта";
             // 
             // resize_box
             // 
-            this.resize_box.Location = new System.Drawing.Point(503, 46);
+            this.resize_box.Location = new System.Drawing.Point(671, 57);
+            this.resize_box.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.resize_box.Name = "resize_box";
-            this.resize_box.Size = new System.Drawing.Size(100, 20);
+            this.resize_box.Size = new System.Drawing.Size(132, 22);
             this.resize_box.TabIndex = 10;
             this.resize_box.KeyDown += new System.Windows.Forms.KeyEventHandler(this.resize_box_KeyDown);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.resize_box);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.change_color_button);
@@ -141,6 +150,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

@@ -1,4 +1,4 @@
-﻿using Laba_4_1_OOP;
+﻿using Laba_6_OOP;
 using System;
 using System.Collections.Generic;
 using System.Linq;

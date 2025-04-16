@@ -16,18 +16,17 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Laba_6_OOP;
 using System.Runtime.CompilerServices;
 
-namespace Laba_4_1_OOP
+namespace Laba_6_OOP
 {
     public partial class Form1 : Form
     {
-        // Создаем объект класса Folder для хранения фигур
+        // Объект класса Folder для хранения фигур
         Folder folder_1 = new Folder(0);
 
         public Form1()
         {
             InitializeComponent();
         }
-
         bool ctrl = false; // Флаг для отслеживания нажатия клавиши Ctrl
         // Обработчик события отпускания клавиши
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -44,45 +43,41 @@ namespace Laba_4_1_OOP
             // Перемещение активных фигур с помощью клавиш A, D, W, S
             if (e.KeyValue == (char)Keys.A)// Клавиша A - движение влево
             {
-                folder_1.moveLeft(-15,0);// Перемещаем фигуры влево
-                folder_1.paint(pictureBox1);// Перерисовываем PictureBox
+                folder_1.moveLeft(-15,0);// Перемещение фигуры влево
+                folder_1.paint(pictureBox1);// Перерисовка PictureBox
             }
 
             if(e.KeyValue == (char)Keys.D)// Клавиша D - движение вправо
             {
-                folder_1.moveRight(15,0);// вправоПеремещаем фигуры
-                folder_1.paint(pictureBox1);// Перерисовываем PictureBox
+                folder_1.moveRight(15,0);// Перемещение фигуры вправо
+                folder_1.paint(pictureBox1);// Перерисовка PictureBox
             }
 
             if(e.KeyValue == (char)Keys.W)// Клавиша W - движение вверх
             {
-                folder_1.moveTop(0,-15);// Перемещаем фигуры вверх
-                folder_1.paint(pictureBox1);// Перерисовываем PictureBox
+                folder_1.moveTop(0,-15);// Перемещение фигуры вверх
+                folder_1.paint(pictureBox1);// Перерисовка PictureBox
             }
 
             if(e.KeyValue == (char)Keys.S)// Клавиша S - движение вниз
             {
-                folder_1.moveBottom(0,15);// Перемещаем фигуры вниз
-                folder_1.paint(pictureBox1);// Перерисовываем PictureBox
+                folder_1.moveBottom(0,15);// Перемещение фигуры вниз
+                folder_1.paint(pictureBox1);// Перерисовка PictureBox
             }
 
             // Удаление активных фигур при нажатии клавиши Delete
             if (e.KeyValue == (char)Keys.Delete)
             {
-                folder_1.del_active();// Удаляем активные фигуры
-                folder_1.paint(pictureBox1);// Перерисовываем PictureBox
+                folder_1.del_active();// Удаление активных фигур
+                folder_1.paint(pictureBox1);// Перерисовка PictureBox
             }
         }
-
         // Обработчик события клика мыши на PictureBox
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-
-            this.ActiveControl = null;// Убираем фокус с активного элемента
-
+            this.ActiveControl = null;// Убираем фокус с активного элемента 
             if (ctrl != true)// Если Ctrl не нажат
                 folder_1.deact_all();// Деактивируем все фигуры
-
             folder_1.probeg(e.X, e.Y);// Проверяем, была ли выбрана фигура
             folder_1.paint(pictureBox1);// Перерисовываем PictureBox
         }
@@ -92,11 +87,9 @@ namespace Laba_4_1_OOP
             if (colorDialog1.ShowDialog() == DialogResult.OK)// Если пользователь выбрал цвет
             {
                 Color color = colorDialog1.Color;// Получаем выбранный цвет
-
                 folder_1.changecolor(color);// Меняем цвет активных фигур
                 this.ActiveControl = null;// Убираем фокус с активного элемента
                 folder_1.paint(pictureBox1);// Перерисовываем PictureBox
-
             }
         }
         // Обработчик события перерисовки PictureBox
@@ -138,7 +131,6 @@ namespace Laba_4_1_OOP
             if(e.KeyValue == (char)Keys.Enter)// Если нажата клавиша Enter
             {
                 size = Convert.ToInt32(resize_box.Text);// Получаем значение из текстового поля
-
                 folder_1.resize(size);// Изменяем размер активных фигур
                 this.ActiveControl = null;// Убираем фокус с активного элемента
                 folder_1.paint(pictureBox1);// Перерисовываем PictureBox
@@ -163,19 +155,22 @@ public class Object
         this.color = Color.Black;// Устанавливаем черный цвет
         this.picturebox1 = pictureBox;// Присваиваем PictureBox
     }
-    // Методы для управления активностью фигуры
+    // Метод для управления активностью фигуры
     public void change_active()
     {
         this.active = !(this.active);// Поменять активность
     }
+    // Метод для активации фигуры
     public void activate()
     {
         this.active = true;// Активировать
     }
+    // Метод для деактивации фигуры
     public void deactivate()
     {
         this.active = false;// Деактивировать
     }
+    // Метод для проверки активности фигуры
     public bool isActive()
     {
         return this.active;// Проверить активность
@@ -191,13 +186,25 @@ public class Object
 
     }
     // Виртуальный метод для проверки, была ли выбрана фигура
-    public virtual bool Selected(int x, int y) { return false; }
+    public virtual bool Selected(int x, int y) 
+    { 
+        return false; 
+    }
     // Виртуальный метод для изменения размера фигуры
-    public virtual void resize(int new_size) { }
+    public virtual void resize(int new_size) 
+    { 
+    
+    }
     // Виртуальный метод для перемещения фигуры
-    public virtual void move(int x, int y) { }
+    public virtual void move(int x, int y) 
+    { 
+    
+    }
     // Виртуальный метод для применения изменений
-    protected virtual void changes_accepted(int dx,int dy,int new_size) { }
+    protected virtual void changes_accepted(int dx,int dy,int new_size) 
+    {
+
+    }
     // Деструктор класса
     ~Object()
     {
@@ -205,12 +212,12 @@ public class Object
     }
 }
 
-// Класс для кругов
-class CCircle : Object
+// Класс кругов
+class Circle : Object
 {
     protected int radius;// Радиус круга
     // Конструктор класса
-    public CCircle(int x_1, int y_1, PictureBox picturebox1) : base(x_1, y_1,picturebox1)
+    public Circle(int x_1, int y_1, PictureBox picturebox1) : base(x_1, y_1,picturebox1)
     {
         this.radius = 100;// Устанавливаем начальный радиус
     }
@@ -278,7 +285,7 @@ class CCircle : Object
     }
 
 }
-// Класс для квадратов
+// Класс квадратов
 class Square : Object
 {
     protected int width; // Ширина квадрата
@@ -349,21 +356,20 @@ class Square : Object
         changes_accepted(dx,dy,this.width);// Вызываем метод перемещения с текущей шириной
     }
 }
-
-// Класс для треугольников
+// Класс треугольников
 class Triangle : Object
 {
-    protected int dist_to_pea;// Расстояние от центра до вершин треугольника
+    protected int dist_to_peak;// Расстояние от центра до вершин треугольника
     // Конструктор класса
     public Triangle(int x_1, int y_1, PictureBox picturebox1) : base(x_1, y_1,picturebox1)
     {
-        this.dist_to_pea = 50;// Устанавливаем начальное расстояние до вершин
+        this.dist_to_peak = 50;// Устанавливаем начальное расстояние до вершин
     }
     // Перекрытый метод для проверки, был ли выбран треугольник
     public override bool Selected(int x_1, int y_1)
     {
         // Проверяем, находится ли точка(x_1, y_1) внутри треугольника
-        if ((Math.Pow((x_1 - this.x),2) + Math.Pow((y_1 - this.y),2)) < this.dist_to_pea/2 * this.dist_to_pea)
+        if ((Math.Pow((x_1 - this.x),2) + Math.Pow((y_1 - this.y),2)) < this.dist_to_peak/2 * this.dist_to_peak)
         {
             return true;// Точка находится внутри треугольника
         }
@@ -378,9 +384,9 @@ class Triangle : Object
         // Создаем перо для рисования с цветом фигуры и толщиной линии, зависящей от активности
         Pen blackPen = new Pen(this.color, active?3:1);
         // Определяем координаты трех вершин треугольника
-        PointF point1 = new PointF(this.x,  this.y - this.dist_to_pea);// Верхняя вершина
-        PointF point2 = new PointF(this.x + dist_to_pea,  this.y + this.dist_to_pea);// Правая нижняя вершина
-        PointF point3 = new PointF(this.x - dist_to_pea,  this.y + this.dist_to_pea);// Левая нижняя вершина
+        PointF point1 = new PointF(this.x,  this.y - this.dist_to_peak);// Верхняя вершина
+        PointF point2 = new PointF(this.x + dist_to_peak,  this.y + this.dist_to_peak);// Правая нижняя вершина
+        PointF point3 = new PointF(this.x - dist_to_peak,  this.y + this.dist_to_peak);// Левая нижняя вершина
         // Массив точек для рисования треугольника
         PointF[] curvePoints =
         {
@@ -397,27 +403,27 @@ class Triangle : Object
     {
         // Проверяем, не выходит ли треугольник за границы PictureBox при изменении размера
         if (((this.y + new_size) < picturebox1.Width - 30)&&((this.y - new_size)>30)&&((this.x - new_size) > 30)&&((this.x + new_size) < picturebox1.Height - 30))
-                this.dist_to_pea = new_size;
+                this.dist_to_peak = new_size;
         // Логика перемещения по оси Y
         if (dy > 0)
         {
-            if ((this.y + dist_to_pea + dy) < picturebox1.Height)// Если треугольник не выходит за нижнюю границу
+            if ((this.y + dist_to_peak + dy) < picturebox1.Height)// Если треугольник не выходит за нижнюю границу
                 this.y = this.y + dy;// Перемещаем вни
         }
         else
         {
-            if ((this.y - dist_to_pea  + dy) > 0)// Если треугольник не выходит за верхнюю границу
+            if ((this.y - dist_to_peak  + dy) > 0)// Если треугольник не выходит за верхнюю границу
                 this.y = this.y + dy;// Перемещаем вверх
         }
         // Логика перемещения по оси X
         if (dx > 0)
         {
-            if ((this.x + dist_to_pea  + dx) < picturebox1.Width)// Если треугольник не выходит за правую границу
+            if ((this.x + dist_to_peak  + dx) < picturebox1.Width)// Если треугольник не выходит за правую границу
                 this.x = this.x + dx;// Перемещаем вправо
         }
         else
         {
-            if ((this.x - dist_to_pea  + dx) > 0)// Если треугольник не выходит за левую границу
+            if ((this.x - dist_to_peak  + dx) > 0)// Если треугольник не выходит за левую границу
                 this.x = this.x + dx;// Перемещаем влево
         }
 
@@ -430,7 +436,7 @@ class Triangle : Object
     // Перекрытый метод для перемещения треугольника
     public override void move(int dx, int dy)
     {
-        changes_accepted(dx,dy,this.dist_to_pea);// Вызываем метод перемещения с текущим размером
+        changes_accepted(dx,dy,this.dist_to_peak);// Вызываем метод перемещения с текущим размером
     }
 }
 // Класс для управления хранилищем фигур
@@ -448,7 +454,6 @@ public class Folder
         Console.Write("Конструктор по умолчанию класса folder");
         this.folder_size = folder_sizee;// Устанавливаем начальный размер массива
         this.objects = new Object[folder_sizee];// Инициализируем массив фигур
-        this.picturebox1 = picturebox1;
 
         flag_circle = false;// По умолчанию режим создания кругов выключен
         flag_square = false;// По умолчанию режим создания квадратов выключен
@@ -512,7 +517,7 @@ public class Folder
         {
             if (flag_circle == true)// Если включен режим создания кругов
             {
-                CCircle circle = new CCircle(x_1, x_2, picturebox1);// Создаём круг
+                Circle circle = new Circle(x_1, x_2, picturebox1);// Создаём круг
                 add_object(circle);// Добавляем круг в массив
                 // Активируем только что созданную фигуру
                 for (int i = 0; i < folder_size + 1; i++)
@@ -574,7 +579,7 @@ public class Folder
     // Метод для проверки наличия фигуры по индексу
     public bool check_by_index(int index)
     {
-        if (index < folder_size)// Если индекс валиден
+        if (index < folder_size)// Если индекс в границах массива
         {
             if (objects[index] == null)// Если элемент равен null
             {
@@ -587,23 +592,23 @@ public class Folder
         }
         else
         {
-            return false;// Возвращаем false, если индекс невалиден
+            return false;// Возвращаем false, если индекс вне границ массива
         }
     }
     // Метод для добавления новой фигуры в массив
     public void add_object(Object something)
     {
-        CCircle circlecheck = something as CCircle;// Проверяем, является ли объект кругом
-        bool mesto = false;// Флаг, указывающий, найдено ли свободное место
+        Circle circlecheck = something as Circle;// Проверяем, является ли объект кругом
+        bool place = false;// Флаг, указывающий, найдено ли свободное место
         for (int i = 0; i < folder_size; i++)// Проходим по всем элементам массива
         {
             if (objects[i] == null)// Если место свободно
             {
-                mesto = true;// Устанавливаем флаг
+                place = true;// Устанавливаем флаг
                 objects[i] = something;// Добавляем фигуру
             }
         }// Если массив заполнен, вызываем метод set_object для увеличения размера массива
-        if (mesto == false)
+        if (place == false)
         {
             set_object(folder_size, something);
         }
@@ -704,14 +709,6 @@ public class Folder
             objects[index] = something;// Устанавливаем фигуру по индексу
         }
     }
-    // Метод для получения фигуры по индексу
-    public Object get_object(int index)
-    {
-        if (check_by_index(index) == true)// Если индекс валиден
-            return this.objects[index];// Возвращаем фигуру
-        else
-            return null;// Возвращаем null, если индекс невалиден
-    }   
     // Деструктор класса
     ~Folder()
     {
